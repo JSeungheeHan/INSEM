@@ -2,36 +2,85 @@
 #include <iostream>
 
 using namespace std;
-struct IntItem {
-    int value;
-    IntItem* next;
-    IntItem(int v, IntItem* n) { value = v; next = n; }
+
+
+class LightBox {
+public:
+    LightBox() {
+        return;
+    }
+
+    LightBox(string n, int p, string d)
+    {
+        name = n;
+        price = p;
+        description = d;
+    }
+
+    void setDisplay(int input[][10])
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            for (int k = 0; k < 10; k++)
+            {
+                display[i][k] = input[i][k];
+            }
+        }
+    }
+
+    void printDisplay() {
+        for (int i = 0; i < 10; i++)
+        {
+            for (int k = 0; k < 10; k++)
+            {
+                cout << display[i][k];
+            }
+            cout << endl;
+        }
+    }
+    string name;
+    int price;
+    int height;
+    int length;
+    string description;
+    int display[10][10];
 };
 
-IntItem* mystery1(int start, int end) {
-    if (start < end) return new IntItem(start, mystery1(start + 1, end));
-    else return nullptr;
-}
-
-IntItem* mystery2(IntItem* head, IntItem* prev) {
-    if (head != nullptr) return mystery2(head->next, new IntItem(head->value, prev));
-    else return prev;
-}
-
-//void printLL(IntItem* a)
-//{
-//    while (a != NULL)
-//    {
-//        cout << a->value << " ";
-//        a = a->next;
-//    }
-//    cout << endl;
-//}
+class Lights {
+public:
+    Lights() {
+        return;
+    }
+    Lights(string n, int p, string d, int l, int w)
+    {
+        name = n;
+        price = p;
+        description = d;
+        length = l;
+        watts = w;
+    }
+    string name;
+    int price;
+    int length;
+    int watts;
+    string description;
+};
 
 int main() {
-    IntItem* p1 = mystery1(0, 5);
-    printLL(p1);
-    IntItem* p2 = mystery2(p1, nullptr);
-    printLL(p2);
-    return 0;
+
+
+    int height;
+    int lenght;
+    int number;
+
+    cout << "Type in the height of the light box: ";
+    cin >> height;
+    cout << "Type in the length of the light box: ";
+    cin >> length;
+    cout << "How many light boxes are you ordering?";
+    cin >> number;
+
+
+
+
 }

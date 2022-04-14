@@ -192,11 +192,13 @@ int main() {
         string heightstr = std::to_string(height);
         heightstr.erase(heightstr.find_last_not_of('0') + 1, std::string::npos);
 
-        string save = "Custom AL frame for " + lengthstr + "\" " + heightstr + "\" ";
+        string save = "Custom " + Boxes[index].name + " Frame for " + lengthstr + "00\" X " + heightstr + "00\" ";
         total = total + price * number;
         printhelp("Custom", save, number, price);
         cout << "                    " << Boxes[index].name << endl;
 
+        int fablic = (11.5 * height / 12 * length / 12) + 1;
+        printhelp("", "Custom Fablic for " + lengthstr + "00\" X " + heightstr + "00\"", number, fablic);
 
         //Calculating lights
         //8.625, 14.38, 17.25
@@ -305,15 +307,15 @@ int main() {
         //Printing the lights
         if (three != 0)
         {
-            printhelp("PER-3-G2", "InSem Perimeter 3 DIODE LED (6000K)", three, 27);
+            printhelp("PER-3-W60G2", "InSem Perimeter 3 DIODE LED (6000K)", three, 27);
         }
         if (five != 0)
         {
-            printhelp("PER-5-G2", "InSem Perimeter 5 DIODE LED (6000K)", five, 30);
+            printhelp("PER-5-W60G2", "InSem Perimeter 5 DIODE LED (6000K)", five, 30);
         }
         if (six != 0)
         {
-            printhelp("PER-6-G2", "InSem Perimeter 6 DIODE LED (6000K)", six, 35);
+            printhelp("PER-6-W60G2", "InSem Perimeter 6 DIODE LED (6000K)", six, 35);
         }
         total = total + three * 27 + five * 30 + six * 35;
 
@@ -343,7 +345,7 @@ int main() {
 
         //Printing cable
 
-        printhelp("INT-MJ-MF-18", "5.5/2.1mm jack to harness female interconnector, 48\"", supplyquantity, 3);
+        printhelp("INT-MJ-MF-18", "5.5/2.1mm jack to harness female interconnector, 18\"", supplyquantity, 3);
         printhelp(supplyname, supplydescription, supplyquantity, supplyprice);
         cout << endl;
         printhelp(" ", "Total: ", 1, total);
